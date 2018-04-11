@@ -30,7 +30,7 @@ Následně pomocí curl pošleme na server tmep.cz. Před odesláním je ale je�
 
 **subdomena** a **nazevteplomeru** jsou proměnné, které si nastavíme sami po registraci na [tmep.eu](https://www.tmep.eu)
 
-Skript je ke stáhnutí zde: [tmep.cz-logovani.sh](tmep.cz-logovani.sh)
+Skript je ke stáhnutí zde: [teplomer.sh](teplomer.sh)
  
 Měřit teplotu chceme pravidelně, takže do Crontabu uložíme (příkaz `crontab -e`) řádek
 
