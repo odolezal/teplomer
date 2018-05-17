@@ -53,3 +53,4 @@ Teploměr Česká
 * Měření teploty je realizováno pomocí počítače Raspberry Pi 3, ke kterému je připojen přes sériové rozhraní teploměr [Papouch TM](https://www.papouch.com/cz/shop/product/tm-rs232-teplomer/). Internetová konektivita je řešena pomocí bezdátové sítě.
 * Na adrese [ceska.tmep.cz](http://ceska.tmep.cz) jsou výstupy z teploměru umístěného v obci Česká.
 * Ve složce [/db](/db) jsou nepravidelné zálohy databáze měření k volnému užití.
+* Aktuální data lze stahovat ve formátu JSON na adrese: https://tmep.cz/vystup-json.php?id=621&export_key=pwtmlr7yhk
