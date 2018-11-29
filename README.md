@@ -56,3 +56,4 @@ Teploměr Česká
 * Aktuální data lze stahovat ve formátu:
   * JSON: https://tmep.cz/vystup-json.php?id=621&export_key=pwtmlr7yhk 
   * XML: https://tmep.cz/vystup-XML.php?id=621&export_key=pwtmlr7yhk
+* Widget pro iOS a Android: https://tmep.cz/index.php?androidWidget=621
