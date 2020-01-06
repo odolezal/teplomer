@@ -18,21 +18,13 @@ Vyzkoušíme komunikaci s čidlem pomocí příkazu `cat /dev/ttyUSB0`. Pokud v�
 
 Na test to stačí, ale problémem je, že program `cat` neustále čeká na vstup, takže se aktuální teplota po čase přepíše další, to není použitelné pro další zpracování. Proto použijeme jiný způsob.
 
-Vytvoříme skript (například `tmep.cz-logovani.sh`). První je příkaz:
+Integrace se serverem TMEP.cz
+---
+- Skript včetně okomentovaných příkazů je ke stáhnutí zde: [teplomer.sh](teplomer.sh).
+- `tmep_subdom` a `tmep_guid` jsou parametry, které si nastavíme sami po registraci na [tmep.cz](https://www.tmep.cz).
 
-`read teplota < /dev/ttyUSB0 && echo -n $teplota | tr -d "\r"`
-
-který otevře sériovou linku, načte teplotu (pořád jako kompletní textový řetězec) a uloží do stejnojmenné proměněné . Text je poslán na vstup programu tr který odstraní "neviditelný" ASCII znak na konci řádku.
-
-Následně pomocí curl pošleme na server tmep.cz. Před odesláním je ale ještě potřeba uříznout písmeno C a tím dostaneme pouze kladné nebo záporné číslo s jednou desetinou hodnotou:
-
-`curl http://subdomena.tmep.cz/?nazevteplomeru=${teplota::-1}`
-
-**subdomena** a **nazevteplomeru** jsou proměnné, které si nastavíme sami po registraci na [tmep.eu](https://www.tmep.eu)
-
-Skript je ke stáhnutí zde: [teplomer.sh](teplomer.sh)
  
-Měřit teplotu chceme pravidelně, takže do Crontabu uložíme (příkaz `crontab -e`) řádek
+Měřit teplotu chceme pravidelně, takže do crontabu uložíme (příkaz `crontab -e`) řádek
 
 `*/5 * * * * bash /home/uzivatel/teplomer/logovani.sh &>/dev/null`
 
@@ -50,7 +42,7 @@ Zdroje
 
 Teploměr Česká
 ---------------
-* Měření teploty je realizováno pomocí počítače Raspberry Pi 3, ke kterému je připojen přes sériové rozhraní teploměr [Papouch TM](https://www.papouch.com/cz/shop/product/tm-rs232-teplomer/). Internetová konektivita je řešena pomocí bezdátové sítě.
+* ~~Měření teploty je realizováno pomocí počítače Raspberry Pi 3, ke kterému je připojen přes sériové rozhraní teploměr [Papouch TM](https://www.papouch.com/cz/shop/product/tm-rs232-teplomer/). Internetová konektivita je řešena pomocí bezdátové sítě.~~
 * Na adrese [ceska.tmep.cz](http://ceska.tmep.cz) jsou výstupy z teploměru umístěného v obci Česká.
 * Ve složce [/db](/db) jsou nepravidelné zálohy databáze měření k volnému užití.
 * Aktuální data lze stahovat ve formátu:
